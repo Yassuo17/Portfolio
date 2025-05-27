@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yassine El Khantour - Portfolio</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -54,6 +58,7 @@
             display: flex;
             list-style: none;
             gap: 2rem;
+            transition: all 0.3s ease;
         }
 
         .nav-links a {
@@ -62,12 +67,13 @@
             font-weight: 500;
             transition: all 0.3s ease;
             position: relative;
+            padding: 0.5rem 0;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
@@ -79,6 +85,16 @@
             width: 100%;
         }
 
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #4a5568;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -87,6 +103,7 @@
             align-items: center;
             position: relative;
             overflow: hidden;
+            padding-top: 80px;
         }
 
         .hero::before {
@@ -101,16 +118,20 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+            }
+            50% { 
+                transform: translateY(-20px) rotate(180deg); 
+            }
         }
 
         .hero-content {
-            max-width: 1100px;
-            margin: auto;
-            padding: 0rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
             display: grid;
-            grid-template-columns: 1fr 0fr;
+            grid-template-columns: 2fr 1fr;
             gap: 4rem;
             align-items: center;
             position: relative;
@@ -142,6 +163,7 @@
         .cta-buttons {
             display: flex;
             gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .btn {
@@ -157,6 +179,7 @@
             gap: 0.5rem;
             position: relative;
             overflow: hidden;
+            white-space: nowrap;
         }
 
         .btn-primary {
@@ -202,18 +225,19 @@
         }
 
         .profile-avatar {
-            width: 200px;
-            height: 200px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAD6APoDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEABVH//2Q==');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1rem;
             border: 4px solid rgba(255, 255, 255, 0.3);
             overflow: hidden;
+            font-size: 3rem;
+            color: white;
+            font-weight: bold;
         }
 
         /* Sections */
@@ -249,6 +273,11 @@
             border: 1px solid #e2e8f0;
         }
 
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            color: #667eea;
+        }
+
         .contact-item {
             display: flex;
             align-items: center;
@@ -273,6 +302,7 @@
             align-items: center;
             justify-content: center;
             color: white;
+            flex-shrink: 0;
         }
 
         .about-content {
@@ -281,6 +311,15 @@
             border-radius: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             border: 1px solid #e2e8f0;
+        }
+
+        .about-content h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
         }
 
         /* Skills Section */
@@ -326,7 +365,22 @@
             font-weight: 500;
         }
 
-        /* Education & Certifications */
+        .skill-category ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-category li {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+
+        /* Timeline */
         .timeline {
             position: relative;
             padding: 2rem 0;
@@ -365,6 +419,16 @@
             border: 1px solid #e2e8f0;
         }
 
+        .timeline-content h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content h4 {
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+        }
+
         .timeline-date {
             position: absolute;
             left: 50%;
@@ -378,7 +442,7 @@
             white-space: nowrap;
         }
 
-        /* Languages & Interests */
+        /* Two Column Layout */
         .two-column {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -410,12 +474,27 @@
             margin-left: auto;
         }
 
+        .interest-section {
+            background: linear-gradient(135deg, #f6f8ff 0%, #e6f3ff 100%);
+            padding: 2rem;
+            border-radius: 20px;
+        }
+
         /* Footer */
         .footer {
             background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
             color: white;
             text-align: center;
             padding: 3rem 2rem;
+        }
+
+        .footer h3 {
+            margin-bottom: 1rem;
+        }
+
+        .footer p {
+            margin: 1rem 0;
+            opacity: 0.8;
         }
 
         .social-links {
@@ -443,18 +522,118 @@
             transform: translateY(-3px);
         }
 
-        /* Responsive */
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                gap: 2rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+            
+            .section {
+                padding: 4rem 2rem;
+            }
+        }
+
         @media (max-width: 768px) {
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                border-radius: 0 0 10px 10px;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 1rem 0;
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding-top: 60px;
+                min-height: auto;
+                padding-bottom: 2rem;
+            }
+
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+                padding: 2rem 1rem;
+                gap: 2rem;
             }
 
             .hero-text h1 {
                 font-size: 2.5rem;
             }
 
+            .hero-text .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .profile-avatar {
+                width: 120px;
+                height: 120px;
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
             .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .skills-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -477,186 +656,57 @@
                 grid-template-columns: 1fr;
             }
 
-            .nav-links {
-                display: none;
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .contact-item div {
+                text-align: center;
             }
         }
 
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.6s ease forwards;
-        }
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
 
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            .hero-text .subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-text .description {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.8rem;
+            }
+
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .contact-info, .about-content, .skill-category {
+                padding: 1.5rem;
+            }
+
+            .timeline-content {
+                padding: 1.5rem;
+            }
+
+            .profile-avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 2rem;
             }
         }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-          * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; line-height: 1.6; color: #1a202c; overflow-x: hidden; }
-
-    .navbar {
-      position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      z-index: 1000; transition: all 0.3s ease;
-    }
-    .nav-container {
-      max-width: 1200px; margin: 0 auto; padding: 1rem 2rem;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .logo {
-      font-size: 1.5rem; font-weight: 700;
-      background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    }
-    .nav-links {
-      display: flex; list-style: none; gap: 2rem;
-    }
-    .nav-links a {
-      text-decoration: none; color: #4a5568; font-weight: 500;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: ''; position: absolute; bottom: -5px; left: 0;
-      width: 0; height: 2px;
-      background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
-      transition: width 0.3s ease;
-    }
-    .nav-links a:hover::after { width: 100%; }
-
-    .mobile-menu-toggle {
-      display: none; background: none; border: none;
-      font-size: 1.5rem; color: #4a5568;
-    }
-
-    @media (max-width: 768px) {
-      .hero-content {
-        grid-template-columns: 1fr !important; text-align: center; padding: 2rem 1rem;
-      }
-      .hero-image { margin-top: 2rem; }
-      .nav-links {
-        display: none; flex-direction: column; background: white;
-        position: absolute; top: 60px; right: 0; width: 100%; padding: 1rem;
-      }
-      .nav-links.open { display: flex; }
-      .mobile-menu-toggle { display: block; }
-      .section, .about-grid, .skills-grid, .timeline, .two-column {
-        padding: 2rem 1rem;
-      }
-    }
-         * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      line-height: 1.6;
-      color: #1a202c;
-      overflow-x: hidden;
-    }
-
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      transition: all 0.3s ease;
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      color: #4a5568;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .mobile-menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: #4a5568;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background: white;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 100%;
-        padding: 1rem;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      .mobile-menu-toggle {
-        display: block;
-      }
-    }
     </style>
 </head>
 <body>
@@ -671,40 +721,36 @@
                 <li><a href="#education">Formation</a></li>
                 <li><a href="#certifications">Certifications</a></li>
             </ul>
+            <button class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
-   <script>
-    const toggle = document.querySelector('.mobile-menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    toggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-  </script>
     <!-- Hero Section -->
     <section id="home" class="hero">
-      <div class="hero-content">
-        <div class="hero-text">
-          <h1>Yassine El Khantour</h1>
-          <p class="subtitle">Étudiant ingénieur en informatique et réseaux</p>
-          <p class="description">
-            Passionné par le développement logiciel et les nouvelles technologies,
-            je recherche actuellement un stage d'été d'un mois à partir du 1er juillet
-            pour mettre en pratique mes compétences et découvrir le monde professionnel.
-          </p>
-          <div class="cta-buttons">
-            <a href="#about" class="btn btn-primary">
-              <i class="fas fa-user"></i>
-              Découvrir mon profil
-            </a>
-            <a href="mailto:yassinelkhantour@gmail.com" class="btn btn-secondary">
-              <i class="fas fa-envelope"></i>
-              Me contacter
-            </a>
-          </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Yassine El Khantour</h1>
+                <p class="subtitle">Étudiant ingénieur en informatique et réseaux</p>
+                <p class="description">
+                    Passionné par le développement logiciel et les nouvelles technologies,
+                    je recherche actuellement un stage d'été d'un mois à partir du 1er juillet 2025
+                    pour mettre en pratique mes compétences et découvrir le monde professionnel.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#about" class="btn btn-primary">
+                        <i class="fas fa-user"></i>
+                        Découvrir mon profil
+                    </a>
+                    <a href="https://www.linkedin.com/in/yassine-e-952a9b249/" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        Me contacter
+                    </a>
+                </div>
+            </div>
+           
         </div>
-      </div>
     </section>
 
     <!-- About Section -->
@@ -712,7 +758,7 @@
         <h2 class="section-title">À propos de moi</h2>
         <div class="about-grid">
             <div class="contact-info">
-                <h3 style="margin-bottom: 1.5rem; color: #667eea;">Informations de contact</h3>
+                <h3>Informations de contact</h3>
                 <div class="contact-item">
                     <div class="contact-icon">
                         <i class="fas fa-map-marker-alt"></i>
@@ -748,24 +794,24 @@
                     </div>
                     <div>
                         <strong>LinkedIn</strong><br>
-                        Yassine El Khantour
+                        <a href="https://www.linkedin.com/in/yassine-e-952a9b249/" target="_blank" style="color: #3b82f6; text-decoration: none;">Yassine El Khantour</a>
                     </div>
                 </div>
             </div>
             <div class="about-content">
-                <h3 style="color: #667eea; margin-bottom: 1rem;">Mon profil</h3>
-                <p style="margin-bottom: 1.5rem;">
+                <h3>Mon profil</h3>
+                <p>
                     Actuellement en 1ère année du cycle d'ingénieur en Informatique et réseaux à l'École marocaine 
                     des sciences de l'ingénieur (EMSI) à Rabat, je suis passionné par le développement logiciel et 
                     les technologies de l'information.
                 </p>
-                <p style="margin-bottom: 1.5rem;">
+                <p>
                     Fort d'une solide formation technique acquise durant mon cycle préparatoire, j'ai développé 
                     des compétences dans plusieurs langages de programmation et technologies web. Mon objectif 
                     est de continuer à apprendre et à me perfectionner dans le domaine de l'informatique.
                 </p>
                 <p>
-                    <strong>Objectif actuel :</strong> Je recherche un stage d'été d'un mois à partir du 1er juillet 
+                    <strong>Objectif actuel :</strong> Je recherche un stage d'été d'un mois à partir du 1er juillet 2025
                     pour mettre en pratique mes connaissances théoriques et acquérir une première expérience 
                     professionnelle significative.
                 </p>
@@ -828,7 +874,7 @@
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <h3 style="color: #667eea;">1ère année cycle d'ingénieur</h3>
+                    <h3>1ère année cycle d'ingénieur</h3>
                     <h4>Informatique et réseaux</h4>
                     <p>École marocaine des sciences de l'ingénieur (EMSI), Rabat</p>
                 </div>
@@ -836,16 +882,15 @@
             </div>
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <h3 style="color: #667eea;">Cycle préparatoire</h3>
+                    <h3>Cycle préparatoire</h3>
                     <p>École marocaine des sciences de l'ingénieur, Rabat</p>
                 </div>
                 <div class="timeline-date">2022-2024</div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-content">
-                    <h3 style="color: #667eea;">Baccalauréat</h3>
+                    <h3>Baccalauréat</h3>
                     <h4>Sciences physique et chimie</h4>
-                    
                     <p>Institut Adam, Sala al jadida</p>
                 </div>
                 <div class="timeline-date">2021-2022</div>
@@ -859,9 +904,9 @@
         <div class="skills-grid">
             <div class="skill-category">
                 <h3><i class="fas fa-certificate"></i> Programmation & Développement</h3>
-                <ul style="list-style: none; padding: 0;">
-                    <li style="margin-bottom: 0.5rem;"><strong>Introduction à la programmation Orientée Objet (C++)</strong> - EPFL (Décembre 2024)</li>
-                    <li style="margin-bottom: 0.5rem;"><strong>Interactivity with JavaScript</strong> - University of Michigan (Octobre 2024)</li>
+                <ul>
+                    <li><strong>Introduction à la programmation Orientée Objet (C++)</strong> - EPFL (Décembre 2024)</li>
+                    <li><strong>Interactivity with JavaScript</strong> - University of Michigan (Octobre 2024)</li>
                     <li style="margin-bottom: 0.5rem;"><strong>Javascript Application Programming</strong> - Alison (Juillet 2024)</li>
                     <li style="margin-bottom: 0.5rem;"><strong>Python for data Structure, AI and Development</strong> - Coursera (Mars 2025)</li>
                 </ul>
